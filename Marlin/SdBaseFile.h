@@ -38,14 +38,14 @@
 #include "SdVolume.h"
 
 /**
- * \struct filepos_t
+ * \struct filepos_t1
  * \brief internal type for istream
  * do not use in user apps
  */
-struct filepos_t {
+struct filepos_t1 {
   uint32_t position;  // stream byte position
   uint32_t cluster;   // cluster of position
-  filepos_t() : position(0), cluster(0) {}
+  filepos_t1() : position(0), cluster(0) {}
 };
 
 // use the gnu style oflag in open()
@@ -181,13 +181,13 @@ class SdBaseFile {
    * get position for streams
    * \param[out] pos struct to receive position
    */
-  void getpos(filepos_t* pos);
+  void getpos(filepos_t1* pos);
 
   /**
    * set position for streams
    * \param[out] pos struct with value for new position
    */
-  void setpos(filepos_t* pos);
+  void setpos(filepos_t1* pos);
 
   bool close();
   bool contiguousRange(uint32_t* bgnBlock, uint32_t* endBlock);
